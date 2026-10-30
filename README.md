@@ -1,7 +1,8 @@
 # QuestLearn: Shadows of the Machine 🖥️👻
 
 > **An interactive retro CRT terminal RPG for narrative debugging and Socratic algorithmic learning powered by open-weight Google Gemma.**  
-> Built for the **Hacktoberfest 2026 Open-Source AI Challenge** (*Week 4: Ghost in the Machine*).
+> Built for the **Hacktoberfest 2026 Open-Source AI Challenge** (*Week 4: Ghost in the Machine*).  
+> 🌐 **Live Web Demo:** [https://questlearn-jy52.onrender.com/](https://questlearn-jy52.onrender.com/)
 
 ---
 
