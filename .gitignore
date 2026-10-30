@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Environment & Secrets (NEVER COMMIT SENSITIVE KEYS)
+.env
+.env.local
+
+# Database
+*.db
+*.sqlite3
+questlearn.db
+
+# Logs & OS Files
+*.log
+.DS_Store
+Thumbs.db

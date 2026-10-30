@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestLearn: Shadows of the Machine | AetherOS Terminal</title>
+    <meta name="description" content="Retro terminal RPG for narrative debugging with open-weight Gemma Socratic mentors. Hacktoberfest 2026 Ghost in the Machine.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="theme-green crt-active">
+    <!-- CRT Curved Glass & Scanline Overlays -->
+    <div class="crt-overlay"></div>
+    <div class="crt-scanlines"></div>
+    <div class="crt-flicker"></div>
+    <div class="crt-vignette"></div>
+
+    <div class="monitor-housing">
+        <header class="crt-hud">
+            <div class="hud-left">
+                <span class="hud-badge pulse-fast" id="hud-system-status">SYS: ONLINE</span>
+                <span class="hud-title">AETHER-OS MAINFRAME v2.41</span>
+            </div>
+            
+            <div class="hud-center">
+                <div class="integrity-container">
+                    <span class="hud-label">INTEGRITY:</span>
+                    <div class="integrity-bar-wrap">
+                        <div class="integrity-bar" id="integrity-bar" style="width: 25%;"></div>
+                    </div>
+                    <span class="integrity-val" id="integrity-val">25%</span>
+                </div>
+            </div>
+
+            <div class="hud-right">
+                <span class="hud-item"><span class="hud-dim">SECTOR:</span> <strong id="hud-sector-id">0x01</strong></span>
+                <span class="hud-item"><span class="hud-dim">SPIRIT:</span> <strong id="hud-spirit-name">ALAN TURING</strong></span>
+                <span class="hud-badge badge-warning" id="hud-daemon-status">DAEMON: CORRUPTED</span>
+                
+                <div class="hud-controls">
+                    <button id="btn-theme" class="hud-btn" title="Toggle Phosphor (Green / Amber / Cyan)">PALETTE</button>
+                    <button id="btn-crt" class="hud-btn" title="Toggle CRT Scanlines & Flicker">CRT FX</button>
+                    <button id="btn-audio" class="hud-btn" title="Toggle 8-bit Audio SFX">SFX: ON</button>
+                    <button id="btn-editor" class="hud-btn hud-btn-accent" title="Open Code Editor">CODE EDITOR</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="terminal-wrapper" id="terminal-wrapper">
+            <div class="terminal-output" id="terminal-output" role="log" aria-live="polite">
+                <!-- System boot content injected here dynamically -->
+            </div>
+
+            <form class="terminal-input-row" id="terminal-form" autocomplete="off">
+                <label for="terminal-input" class="prompt-label" id="prompt-label">root@aether-os:~#</label>
+                <input 
+                    type="text" 
+                    id="terminal-input" 
+                    class="terminal-input" 
+                    spellcheck="false" 
+                    autofocus 
+                    aria-label="Terminal Command Input"
+                    placeholder="Type 'help' or 'scan' to begin..."
+                />
+            </form>
+        </main>
+
+        <footer class="crt-footer">
+            <div class="footer-left">
+                <span>[HACKTOBERFEST 2026 // OPEN-SOURCE AI CHALLENGE]</span>
+                <span class="footer-dim">CORE: GOOGLE GEMMA (OPEN-WEIGHTS)</span>
+            </div>
+            <div class="footer-right">
+                <span>PRESS <kbd>TAB</kbd> FOR AUTOCOMPLETE &bull; <kbd>&uarr;&darr;</kbd> FOR HISTORY</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Retro In-Terminal Code Editor Modal -->
+    <div class="modal-backdrop hidden" id="editor-modal">
+        <div class="retro-modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="blink-symbol">&diams;</span> AETHER-OS KERNEL PATCH EDITOR &bull; <span id="modal-sector-title">SECTOR 0x01</span>
+                </div>
+                <div class="modal-actions">
+                    <button id="btn-modal-load-corrupt" class="hud-btn" title="Load Default Corrupted Code">RELOAD CORRUPTED</button>
+                    <button id="btn-modal-apply" class="hud-btn hud-btn-accent" title="Submit Patch (Ctrl+Enter)">APPLY PATCH</button>
+                    <button id="btn-modal-close" class="hud-btn" title="Close (Esc)">DISMISS</button>
+                </div>
+            </div>
+            <div class="modal-subbar">
+                <span>Subroutine: <code id="modal-func-name">compute_fibonacci(n)</code></span>
+                <span class="footer-dim">Press <strong>Ctrl + Enter</strong> to apply patch to sandbox</span>
+            </div>
+            <div class="modal-body">
+                <textarea id="modal-code-editor" class="retro-code-area" spellcheck="false" placeholder="# Write your corrected Python patch here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/terminal.js"></script>
+</body>
+</html>
